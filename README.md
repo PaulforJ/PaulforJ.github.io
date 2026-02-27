@@ -48,25 +48,18 @@
   .hero:hover .hero-bg { transform: scale(1); }
   .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 2rem; animation: heroFadeUp 1.2s cubic-bezier(0.22,1,0.36,1) both; }
   @keyframes heroFadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; animation: heroFadeUp 1.2s 0.1s cubic-bezier(0.22,1,0.36,1) both; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(3rem,8vw,6.5rem); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 1.4rem; animation: heroFadeUp 1.2s 0.2s cubic-bezier(0.22,1,0.36,1) both; }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(3rem,8vw,6.5rem); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 1.4rem; }
   .hero h1 em { font-style: italic; color: var(--gold-light); }
-  .hero p { font-size: 1.05rem; line-height: 1.7; color: rgba(250,250,248,0.7); max-width: 500px; margin: 0 auto 2.8rem; animation: heroFadeUp 1.2s 0.35s cubic-bezier(0.22,1,0.36,1) both; }
-  .hero-btns { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; animation: heroFadeUp 1.2s 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+  .hero p { font-size: 1.05rem; line-height: 1.7; color: rgba(250,250,248,0.7); max-width: 500px; margin: 0 auto 2.8rem; }
+  .hero-btns { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
   .btn-primary { padding: 1rem 2.4rem; background: var(--gold); color: var(--black); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: background 0.3s, transform 0.3s; }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
   .btn-outline { padding: 1rem 2.4rem; border: 1px solid rgba(250,250,248,0.5); color: var(--white); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: border-color 0.3s, color 0.3s, transform 0.3s; }
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
   .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(250,250,248,0.4); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; animation: bounce 2s infinite; }
   .scroll-hint::after { content: ''; display: block; width: 1px; height: 3rem; background: linear-gradient(to bottom, var(--gold), transparent); }
-  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transformX(-50%) translateY(6px); } }
-
-  /* MARQUEE */
-  .marquee-strip { background: var(--black); color: var(--gold); padding: 1rem 0; overflow: hidden; white-space: nowrap; }
-  .marquee-inner { display: inline-block; animation: marquee 22s linear infinite; font-family: var(--serif); font-size: 1.1rem; font-style: italic; letter-spacing: 0.05em; }
-  .marquee-inner span { margin: 0 2.5rem; }
-  .marquee-inner .sep { color: rgba(201,169,110,0.4); }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
 
   /* SECTION COMMON */
   section { padding: 7rem 5%; }
@@ -75,7 +68,13 @@
   .section-subtitle { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; max-width: 480px; margin-top: 1rem; }
   .section-header { margin-bottom: 4rem; }
   .section-header.centered { text-align: center; }
-  .section-header.centered .section-subtitle { margin: 1rem auto 0; }
+
+  /* MARQUEE */
+  .marquee-strip { background: var(--black); color: var(--gold); padding: 1rem 0; overflow: hidden; white-space: nowrap; }
+  .marquee-inner { display: inline-block; animation: marquee 22s linear infinite; font-family: var(--serif); font-size: 1.1rem; font-style: italic; letter-spacing: 0.05em; }
+  .marquee-inner span { margin: 0 2.5rem; }
+  .marquee-inner .sep { color: rgba(201,169,110,0.4); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* CATEGORIES */
   .categories { background: var(--beige); }
@@ -89,36 +88,6 @@
   .cat-card:hover .cat-card-cta { gap: 0.9rem; }
   .cat-card-cta::after { content: '→'; }
 
-  /* PRODUCTS GRID */
-  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 2rem; }
-  .product-card { background: var(--white); position: relative; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
-  .product-card:hover { transform: translateY(-6px); }
-  .product-img-wrap { position: relative; overflow: hidden; aspect-ratio: 3/4; background: var(--beige); }
-  .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22,1,0.36,1); }
-  .product-card:hover .product-img-wrap img { transform: scale(1.06); }
-  .product-badge { position: absolute; top: 1rem; left: 1rem; background: var(--black); color: var(--gold); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; }
-  .product-actions { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.9); display: flex; justify-content: center; padding: 0.9rem; transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); }
-  .product-card:hover .product-actions { transform: translateY(0); }
-  .btn-cart { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.6rem 1.8rem; cursor: pointer; transition: background 0.3s, color 0.3s; width: 100%; }
-  .btn-cart:hover { background: var(--gold); color: var(--black); }
-  .product-info { padding: 1.2rem 0.2rem 0.5rem; }
-  .product-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; margin-bottom: 0.4rem; }
-  .product-meta { display: flex; justify-content: space-between; align-items: center; }
-  .product-price { font-size: 0.9rem; font-weight: 500; color: var(--black); }
-  .product-price .old { color: var(--text-muted); text-decoration: line-through; margin-right: 0.5rem; font-weight: 300; }
-  .product-stars { color: var(--gold); font-size: 0.72rem; letter-spacing: 0.1em; }
-
-  /* WHY SHOP */
-  .why { background: var(--black); }
-  .why .section-title { color: var(--white); }
-  .why .section-label { color: var(--gold); }
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 2.5rem; margin-top: 4rem; }
-  .why-card { border-top: 1px solid rgba(201,169,110,0.25); padding-top: 2rem; transition: border-color 0.3s; }
-  .why-card:hover { border-color: var(--gold); }
-  .why-icon { font-size: 2rem; margin-bottom: 1.2rem; filter: sepia(1) saturate(3) hue-rotate(5deg); }
-  .why-title { font-family: var(--serif); font-size: 1.3rem; color: var(--white); margin-bottom: 0.7rem; font-weight: 400; }
-  .why-desc { font-size: 0.88rem; color: rgba(250,250,248,0.5); line-height: 1.7; }
-
   /* TESTIMONIALS */
   .testimonials { background: var(--beige); }
   .testi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 2rem; }
@@ -130,12 +99,114 @@
   .testi-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold-light); }
   .testi-name { font-size: 0.85rem; font-weight: 500; }
   .testi-role { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
-  .testi-stars { color: var(--gold); font-size: 0.7rem; margin-bottom: 1rem; }
 
-  /* CTA BAND */
-  .cta-band { position: relative; overflow: hidden; min-height: 420px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 7rem 5%; }
-  .cta-band-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.7) 100%), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1400&q=80') center/cover; }
-  .cta-band-content { position: relative; z-index: 2; max-width: 680px; }
-  .cta-band h2 { font-family: var(--serif); font-size: clamp(2.4rem,5vw,4.5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 0.8rem; }
-  .cta-band h2 em { font-style: italic; color: var(--gold-light); }
-  .cta-band p { color: rgba(250
+  /* FADE-IN */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE */
+  @media (max-width: 900px) { .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Essy Haven</a>
+  <ul class="nav-links">
+    <li><a href="#categories">Collections</a></li>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#">Search</a>
+    <a href="#" id="cart-link">Cart (0)</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">New Season · 2025 Collection</p>
+    <h1>Elevate Your <em>Everyday</em> Style</h1>
+    <p>Premium fashion accessories crafted for confidence and class.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">Shop Now</a>
+      <a href="#categories" class="btn-outline">Explore Collection</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>New Arrivals</span><span class="sep">✦</span>
+    <span>Premium Quality</span><span class="sep">✦</span>
+    <span>Trend-Driven Designs</span><span class="sep">✦</span>
+    <span>Affordable Luxury</span><span class="sep">✦</span>
+    <span>Free Shipping Over $150</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- Categories -->
+<section class="categories" id="categories">
+  <div class="section-header fade-in">
+    <p class="section-label">Curated for You</p>
+    <h2 class="section-title">Shop by Category</h2>
+    <p class="section-subtitle">Explore our carefully curated collections across every style dimension.</p>
+  </div>
+  <div class="categories-grid fade-in">
+    <!-- repeat your cat-card divs here -->
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header centered fade-in">
+    <p class="section-label">Hear from Our Customers</p>
+    <h2 class="section-title">Testimonials</h2>
+  </div>
+  <div class="testi-grid fade-in">
+    <div class="testi-card">
+      <p class="testi-quote">“Absolutely love my new watch! The quality is unmatched.”</p>
+      <div class="testi-author">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe" class="testi-avatar" />
+        <div>
+          <div class="testi-name">John Doe</div>
+          <div class="testi-role">Fashion Enthusiast</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">“Essy Haven makes me feel confident and stylish every day.”</p>
+      <div class="testi-author">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jane Smith" class="testi-avatar" />
+        <div>
+          <div class="testi-name">Jane Smith</div>
+          <div class="testi-role">Entrepreneur</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Fade-in script -->
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+
+</body>
+</html>
